@@ -1,26 +1,28 @@
-#include <stdio.h>
 #include "stack.h"
 
-int main(int argc, char const *argv[])
+int main()
 {
-  TwoStack s;
+
+  MinStack s;
   init(&s);
-  printf("Push 10\n");
-  push1(&s, 10);
-  printf("Push 20\n");
-  push1(&s, 20);
-  printf("Push 30\n");
-  push1(&s, 30);
-  printf("Push 40\n");
-  push2(&s, 40);
-  printf("Push 50\n");
-  push2(&s, 50);
+
+  push(&s, 5);
+  push(&s, 2);
+  push(&s, 10);
+  push(&s, 1);
 
   display(&s);
 
-  printf("Pop from Stack 1: %d\n", pop1(&s));
-  printf("Pop from Stack 2: %d\n", pop2(&s));
-  display(&s);
+  printf("Min = %d\n", getMin(&s));
 
-    return 0;
+  displayMinStack(&s);
+
+  printf("Pop = %d\n", pop(&s));
+
+  display(&s);
+  displayMinStack(&s);
+
+  printf("Min = %d\n", getMin(&s));
+
+  return 0;
 }
